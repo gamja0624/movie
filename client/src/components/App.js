@@ -1,20 +1,18 @@
-import NavBar from "./NavBar/NavBar";
-import LandingPage from "./Landingpage/LandingPage";
-import Footer from "./Footer/Footer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Detail from "./Detail/Detail";
-import Items from "./Items/Items";
+import Footer from "./Footer/Footer";
+import LandingPage from "./Landingpage/LandingPage";
+import NavBar from "./NavBar/NavBar";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
       <div style={{ minHeight: "100vh" }}>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/Items" element={<Items />} />
-            <Route path="/movie/:movieId" element={<Detail />} />
+            <Route path="/detail/:movieId" element={<Detail />} />
           </Routes>
         </Router>
       </div>

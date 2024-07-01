@@ -5,7 +5,6 @@ import { IMAGE_BASE_URL } from '../Config';
 
 
 const ImageList = ({ targets }) => {
-
   return (
     <>
       <Row gutter={[10, 10]}>
@@ -16,6 +15,7 @@ const ImageList = ({ targets }) => {
                 <AntCard
                   path={`${IMAGE_BASE_URL}w400${cast.profile_path}`}
                   name={cast.name}
+                  id={cast.id}
                 />
               }
             </React.Fragment>

@@ -1,23 +1,17 @@
 import { Layout, Menu } from 'antd';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const { Header } = Layout;
 const items = ['HOME'].map((key) => ({
   key,
   label: (
-    <a href={key === 'HOME' ? '/' : `/${key}`}>
+    <a href={key === 'HOME' ? '/movie' : `/${key}`}>
       {key}
     </a>
   ),
 }));
 
-// [ 풀이 ]
-//  const items = [{
-//   key: 'HOME',
-//   lable: (
-//     <a href = '/'> HOME </a>
-//   ) 
-//  }]
 
 const NavBar = () => {
 

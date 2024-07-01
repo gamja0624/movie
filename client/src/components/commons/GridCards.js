@@ -14,15 +14,11 @@ import { Col } from 'antd';
 
 const GridCards = (props) => {
 
-  // console.log('[ props ] ',props)  // 전달 : landingPage, movieId, path, title
-  // console.log('[ props.landigPage ]',props.landingPage)  // landingPage : true
-
   if (props.landingPage) {
     // [ LandingPage ] 처리 =============================
     return (
       <Col lg={4} md={6} sm={12} xs={24}>
         <div>
-          {/* <a href={`/movie/영화아이디`}> */}
           <a href={`/movie/${props.movieId}`}>
             <img
               style={{ width: '100%' }}

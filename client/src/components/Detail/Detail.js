@@ -6,7 +6,6 @@ import MovieInfo from './MovieInfo';
 import { Button, Divider } from 'antd';
 import ImageList from './ImageList';
 
-// <<< 변수명 통일하기 >>>
 const Detail = () => {
 
   const naviegate = useNavigate();
@@ -35,7 +34,6 @@ const Detail = () => {
     fetch(endpointInfo)
       .then(response => response.json())
       .then(response => {
-        console.log('movie INFO', response)
         setMovie(response);
       });
 
@@ -43,7 +41,6 @@ const Detail = () => {
     fetch(endpointCrew)
       .then(response => response.json())
       .then(response => {
-        console.log('cast', response);
         setCasts(response.cast);
         setCrew(response.crew);
       })
@@ -62,6 +59,7 @@ const Detail = () => {
 
   return (
     <>
+
       {/* Header */}
       <div>
         {Movie &&
