@@ -10,7 +10,7 @@ const AntCard = (props) => {
     return (
       <Col lg={4} md={6} sm={12} xs={24} >
         {/* <a href={`/movie/영화아이디`}> */}
-        <Link to={`detail/${props.id}`}>
+        <Link to={`/detail/${props.id}`}>
           <Card
             hoverable
             style={{ width: '100%' }}

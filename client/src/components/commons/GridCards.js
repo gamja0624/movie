@@ -1,16 +1,5 @@
-// rafc  : 화살표 함수 (export 변수 옆)
-// rafce : 화살표 함수 (export 아래)
 import React from 'react';
 import { Col } from 'antd';
-
-/*
-==========================
-  xs :     0 ~ 575px
-  sm : 576px ~ 767px
-  md : 768px ~ 991px
-  lg : 992px ~ 1119px
-==========================
-*/
 
 const GridCards = (props) => {
 
@@ -42,10 +31,7 @@ const GridCards = (props) => {
         </div>
       </Col>
     )
-
-
   };
-
 }
 
 export default GridCards

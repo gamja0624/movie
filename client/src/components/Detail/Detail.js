@@ -5,6 +5,7 @@ import MainImage from '../Landingpage/Section/MainImage';
 import MovieInfo from './MovieInfo';
 import { Button, Divider } from 'antd';
 import ImageList from './ImageList';
+import axios from 'axios';
 
 const Detail = () => {
 
@@ -29,22 +30,21 @@ const Detail = () => {
     // https://api.themoviedb.org/3/movie/movie_id/credits?api_key=API_KEY
     let endpointCrew = `${API_URL}${movieId}/credits?api_key=${API_KEY}`;
 
-
+    
     // [ 특정 영화 정보 요청 ]  영화 아이디로 정보 요청 =================
-    fetch(endpointInfo)
-      .then(response => response.json())
+    axios.get(endpointInfo)
       .then(response => {
-        setMovie(response);
+        const endpointInfoData = response.data;
+        setMovie(endpointInfoData)
       });
 
-    // [ 영화 출연진 정보 요청 ]
-    fetch(endpointCrew)
-      .then(response => response.json())
+    // [ 영화 출연진 정보 요청 ] 
+    axios.get(endpointCrew)
       .then(response => {
-        setCasts(response.cast);
-        setCrew(response.crew);
+        const endpointCrewData = response.data;
+        setCasts(endpointCrewData.cast);
+        setCrew(endpointCrewData.crew)
       })
-
   }, []);
 
   // [ 버튼 핸들러 : 배우 목록 ]
@@ -59,7 +59,6 @@ const Detail = () => {
 
   return (
     <>
-
       {/* Header */}
       <div>
         {Movie &&
@@ -115,7 +114,6 @@ const Detail = () => {
             <ImageList
               targets={Crew}
             />
-
           </div>
         }
 

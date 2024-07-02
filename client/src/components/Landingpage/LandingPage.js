@@ -15,23 +15,16 @@ function LandingPage() {
   function fetchMovies(page) {
     const endPoint = `${API_URL}popular?api_key=${API_KEY}&language=en-US&page=${page}`;
 
-    axios.get (endPoint)
+    axios.get(endPoint)
       .then(response => {
-        setMainMovieImage(response.results[0]);
-        setCurrentPage(response.page);
-        setMovies([...Movies, ...response.results]);
+        console.log("axios", response)
+        const endPointData = response.data;
+        setMainMovieImage(endPointData.results[0]);
+        setCurrentPage(endPointData.page);
+        setMovies([...Movies, ...endPointData.results]);
       });
+
   }
-
-
-  //   fetch(endPoint)
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       setMainMovieImage(res.results[0]);
-  //       setCurrentPage(res.page);
-  //       setMovies([...Movies, ...res.results]);
-  //     });
-  // }
 
   useEffect(() => {
     const page = 1;
