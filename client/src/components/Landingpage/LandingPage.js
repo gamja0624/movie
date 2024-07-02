@@ -4,6 +4,7 @@ import MainImage from "./Section/MainImage";
 import { Button, Row } from "antd";
 import { useNavigate } from "react-router-dom";
 import AntCard from "../commons/AntCard";
+import axios from 'axios';
 
 function LandingPage() {
   const [Movies, setMovies] = useState([]);
@@ -14,15 +15,23 @@ function LandingPage() {
   function fetchMovies(page) {
     const endPoint = `${API_URL}popular?api_key=${API_KEY}&language=en-US&page=${page}`;
 
-
-    fetch(endPoint)
-      .then(res => res.json())
-      .then(res => {
-        setMainMovieImage(res.results[0]);
-        setCurrentPage(res.page);
-        setMovies([...Movies, ...res.results]);
+    axios.get (endPoint)
+      .then(response => {
+        setMainMovieImage(response.results[0]);
+        setCurrentPage(response.page);
+        setMovies([...Movies, ...response.results]);
       });
   }
+
+
+  //   fetch(endPoint)
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       setMainMovieImage(res.results[0]);
+  //       setCurrentPage(res.page);
+  //       setMovies([...Movies, ...res.results]);
+  //     });
+  // }
 
   useEffect(() => {
     const page = 1;

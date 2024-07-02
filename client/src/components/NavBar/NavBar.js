@@ -6,6 +6,8 @@ const { Header } = Layout;
 const items = ['HOME'].map((key) => ({
   key,
   label: (
+    //   link to 로 바꿔보기 
+    // <Link to="/movie"> {key} </Link>
     <a href={key === 'HOME' ? '/movie' : `/${key}`}>
       {key}
     </a>
